@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MatDividerModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { Route, RouterModule, Routes } from '@angular/router';
 
 // Components
 import { AppComponent } from './app.component';
@@ -24,7 +25,12 @@ import { TwitchService } from './services/twitch.service';
 import { ToolbarService } from './services/toolbar.service';
 
 
-
+export const ROUTES: Routes = [
+  {path: 'play/:channel',  component: PlayerComponent},
+  {path: 'games', component: GamesComponent},
+  {path: 'channels/:game', component: ChannelsComponent},
+  {path: 'login', component: LoginComponent}
+];
 
 @NgModule({
   declarations: [
@@ -43,7 +49,8 @@ import { ToolbarService } from './services/toolbar.service';
     MatDividerModule,
     MatButtonModule,
     MatIconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [
     GamesService,

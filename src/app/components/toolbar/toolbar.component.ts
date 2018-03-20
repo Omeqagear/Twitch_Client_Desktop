@@ -35,7 +35,7 @@ export class ToolbarComponent implements OnInit, SubheaderValue {
   player_logo: string = null;
 
   constructor(
-    private router: Router,
+    public router: Router,
     private toolbarService: ToolbarService,
     private twitchService: TwitchService) {
 
